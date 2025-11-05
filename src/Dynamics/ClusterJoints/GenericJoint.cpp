@@ -296,6 +296,7 @@ namespace grbda
 
             const int n_ind = loop_constraint->numIndependentPos();
             const int n_span = loop_constraint->numSpanningPos();
+            std::cout << n_ind << " " << n_span << std::endl;
             // TODO(@MatthewChignoli): Make this an input parameter
             double ind_range = 1.0;
             double dep_range = 0.1;
@@ -350,8 +351,9 @@ namespace grbda
         template <typename Scalar>
         JointState<double> Generic<Scalar>::randomJointState() const
         {
-            if (this->loop_constraint_->isExplicit())
+            if (this->loop_constraint_->isExplicit()) {
                return Base<Scalar>::randomJointState(); 
+            }
 
             if (!generic_constraint_)
             {
